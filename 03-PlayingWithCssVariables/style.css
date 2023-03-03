@@ -8,26 +8,27 @@ img {
     padding: var(--spacing);
     background: var(--base);
     filter: blur(var(--blur));
-    height: 600px;
-    width: 600px;
+    height: 500px;
+    width: 800px;
     object-fit: cover ;
 }
 
 body {
     text-align: center;
-}
-
-body {
     background: lightcoral;
     color: white;
     font-weight: 100;
     font-size: 50px;
 }
 
-.controls {
-    margin-bottom: 50px;
-}
-
 span {
     color: var(--base);
+}
+
+.container {
+    margin-bottom: 30px;
+}
+
+label {
+    margin-left: 10px;
 }
