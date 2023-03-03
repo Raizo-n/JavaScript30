@@ -1,0 +1,33 @@
+:root{
+    --base: #ffc600;
+    --spacing: 10px;
+    --blur: 10px;
+}
+
+img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+    height: 600px;
+    width: 600px;
+    object-fit: cover ;
+}
+
+body {
+    text-align: center;
+}
+
+body {
+    background: lightcoral;
+    color: white;
+    font-weight: 100;
+    font-size: 50px;
+}
+
+.controls {
+    margin-bottom: 50px;
+}
+
+span {
+    color: var(--base);
+}
