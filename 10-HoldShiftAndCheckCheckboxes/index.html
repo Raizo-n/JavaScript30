@@ -17,7 +17,7 @@
       max-width: 400px;
       margin: 50px auto;
       background: white;
-      border-radius: 5px;
+      border-radius: 30px;
       box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
     }
 
@@ -95,6 +95,29 @@
   </div>
 
 <script>
+    const checkBoxes = document.querySelectorAll('.inbox input')
+    let lastChecked;
+    function handleCheck(e) {
+        // check if they had the shift key down
+        // AND check that they are checking it
+        let inBetween = false;
+        if(e.shiftKey && this.checked) {
+            // go ahead and do what we please
+            // loop over every single checkbox
+            checkBoxes.forEach(checkbox => {
+                console.log(checkbox);
+                if(checkbox === this || checkbox === lastChecked) {
+                    inBetween = !inBetween;
+                    console.log('----');
+                }
+                if (inBetween) {
+                    checkbox.checked = true;
+                }
+            })
+        }
+        lastChecked = this;
+    }
+    checkBoxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck))
 </script>
 </body>
 </html>
