@@ -28,6 +28,14 @@ html {
     border-radius: 1rem;
   }
 
+  .btn {
+    padding: 10px;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+
   .game {
     width: 600px;
     height: 400px;
