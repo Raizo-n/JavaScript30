@@ -40,7 +40,10 @@
       const holes = document.querySelectorAll(".hole");
       const scoreBoard = document.querySelector(".score");
       const moles = document.querySelectorAll(".mole");
+      const playTime = 10000;
       let lastHole;
+      let timeUp = false;
+      let score = 0;
 
       // get a random amount of milliseconds for popping up the mole
       function randomTime(min, max) {
@@ -60,6 +63,37 @@
         lastHole = hole;
         return hole;
       }
+
+      function peep() {
+        const time = randomTime(200, 1000);
+        const hole = randomHole(holes);
+        hole.classList.add("up");
+        setTimeout(() => {
+          hole.classList.remove("up");
+          if (!timeUp) peep();
+        }, time);
+      }
+
+
+      function startGame() {
+          scoreBoard.textContent = 0;
+          timeUp = false;
+          score = 0;
+          peep();
+          setTimeout(() => (timeUp = true), playTime);
+        }
+
+        function bonk(e) {
+          if(!e.isTrusted) return; // cheater!
+          score++;
+          this.classList.remove('up')
+          scoreBoard.textContent = score;
+      }
+
+      moles.forEach((mole) => mole.addEventListener("click", bonk));
+
+      // you should restrict the number of click times for the mole per pop-up
+      // otherwise, you can unlimitedly click and add the score per pop-up
     </script>
   </body>
 </html>
